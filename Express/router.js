@@ -7,7 +7,7 @@ const getAllBooks = async (req, res) => {
 }
 const getBook = async (req, res) => {
     const id = req.params.bookid
-    const book = await Books.findByPk(bookid);
+    const book = await Books.findByPk(id);
     res.send(book)
 }
 router.get('/books',getAllBooks);
