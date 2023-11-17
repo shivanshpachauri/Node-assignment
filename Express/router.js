@@ -1,10 +1,16 @@
 const router = require('express').Router();
 const {Books} = require('./booktable');
 
-const getAllProducts = async (req, res) => {
+const getAllBooks = async (req, res) => {
     const books = await Books.findAll({});
     res.send(books)
 }
-router.get('/books',getAllProducts);
+const getBook = async (req, res) => {
+    const id = req.params.bookid
+    const book = await Books.findByPk(bookid);
+    res.send(book)
+}
+router.get('/books',getAllBooks);
+router.get("/books/:bookid", getBook);
 
 module.exports=router;
